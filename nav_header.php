@@ -7,7 +7,7 @@
             <a href="#">Fundamentals</a> -->
 
             <?php 
-            $nav_elements = array("Home", "About Us", "Aptitude", "Fundamentals", "MNC");
+            $nav_elements = array("Home", "categorydash_f", "Aptitude", "Fundamentals", "MNC");
              for($x = 0; $x<count($nav_elements) ; $x++){
                 echo "<a href=\"./$nav_elements[$x].php\">$nav_elements[$x]</a>";
              }

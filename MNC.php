@@ -61,7 +61,7 @@ session_start();
         $result = mysqli_query($con, $sql);
         while ($row = mysqli_fetch_array($result)) {
             ?>
-            <div class="card">
+            <div class="card" id="<?php $row['comp_img'] ?>">
                 <div class="img-container">
                     <img src="<?php echo $row['comp_img'] ?>" alt="<?php echo $row['comp_name'] ?>">
                 </div>
@@ -100,75 +100,3 @@ session_start();
 </body>
 
 </html>
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background-color: #f0f0f0;
-        }
-
-        .card {
-            max-width: 400px;
-            background-color: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .card img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px;
-            background-color: #333;
-            color: #fff;
-        }
-
-        .card-body {
-            padding: 15px;
-        }
-
-        .description {
-            margin-bottom: 10px;
-        }
-
-        @media (max-width: 600px) {
-            .card {
-                max-width: 100%;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="card">
-        <div class="card-header">
-            <img src="path/to/your/image.jpg" alt="Image">
-            <div class="title">Your Name</div>
-        </div>
-        <div class="card-body">
-            <div class="description">
-                <strong>Description 1:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </div>
-            <div class="description">
-                <strong>Description 2:</strong> Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </div>
-        </div>
-    </div>
-</body>
-</html> -->
