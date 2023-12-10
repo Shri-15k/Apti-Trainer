@@ -1,0 +1,140 @@
+.sidenav {
+    width: 250px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background: rgba(255, 99, 71, 0.8);
+    border-radius: 10px;
+    box-shadow: 5px 7px 10px rgba(0, 0, 0, .5);
+    display: none;
+    position: fixed;
+    height: auto;
+    top: 100px;
+    /* Adjust the distance below the horizontal navigation bar */
+    left: 0;
+}
+
+.sidenav.open {
+    /* Styles to make the side navigation visible when the 'open' class is applied */
+    display: block;
+}
+
+.card-body {
+    margin-top: 50px;
+    /* Adjust the margin to make space for the horizontal navigation bar */
+}
+
+.sidenav ul {
+    position: relative;
+    list-style-type: none;
+}
+
+#toggleBtn {
+    position: fixed;
+    top: 100px;
+    /* Adjust the distance below the horizontal navigation bar */
+    left: 10px;
+    /* Adjust the distance from the left */
+    z-index: 2;
+    /* Ensure it appears above other elements */
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.sidenav ul li a {
+    display: flex;
+    align-items: center;
+    font-family: arial;
+    font-size: 1.15em;
+    text-decoration: none;
+    text-transform: capitalize;
+    color: #000;
+    padding: 10px 30px;
+    height: 50px;
+    transition: .5s ease;
+    border-radius: 0 30px;
+}
+
+.sidenav ul li a:hover {
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+}
+
+.sidenav ul ul {
+    position: absolute;
+    left: 250px;
+    width: 200px;
+    top: 0;
+    display: none;
+    background: rgba(155, 39, 176, .4);
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 1);
+}
+
+.sidenav ul span {
+    position: absolute;
+    right: 20px;
+    font-size: 1.5em;
+}
+
+.sidenav ul .dropdown {
+    position: relative;
+}
+
+.sidenav ul .dropdown:hover ul {
+    display: initial;
+}
+
+/* radio buttons styling */
+
+.container {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 115px;
+    left:750px; /* Adjusted left value for positioning to the right side */
+    display: flex; /* Display radio buttons in a row */
+    gap: 30px; /* Add some space between radio buttons */
+    margin-left: 185px;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+label {
+    position: relative;
+    color: #01cc65;
+    font-family: 'poppins', sans-serif;
+    font-size: 10px;
+    font-weight: 200;
+    border: 2px solid #01cc65;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding: 10px 10px;
+    cursor: pointer;
+}
+
+label:before {
+    content: "";
+    height: 10px;
+    width: 10px;
+    border: 3px solid #01cc65;
+    border-radius: 50%;
+    margin-right: 10px; /* Adjusted margin for better spacing */
+}
+
+input[type="radio"]:checked + label {
+    background-color: #01cc65;
+    color: white;
+}
+
+input[type="radio"]:checked + label:before {
+    height: 10px;
+    width: 10px;
+    border: 6px solid white; /* Adjusted border thickness for better visibility */
+    background-color: #01cc65;
+}
+
