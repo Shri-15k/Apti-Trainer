@@ -14,6 +14,7 @@ session_start();
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="CSS/MNC.css">
     <link rel="stylesheet" href="CSS/sidenav.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 </head>
 
@@ -53,6 +54,43 @@ session_start();
         /* Adjust the left value to position it correctly */
         z-index: 2;
         /* Ensure it appears above other elements */
+    }
+
+    /* radio buttons styling */
+
+    .container {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 115px;
+        left: 750px;
+        /* Adjusted left value for positioning to the right side */
+        display: flex;
+        /* Display buttons in a row */
+        gap: 15px;
+        /* Add some space between buttons */
+        margin-left: 185px;
+    }
+
+    .category-btn {
+        text-decoration: none;
+        color: midnightblue;
+        font-family: 'poppins', sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        border: 2px solid #000;
+        border-radius: 5px;
+        padding: 12px 15px;
+        cursor: pointer;
+        height: 40px;
+        text-align: center;
+        width: 130px;
+        transition: background-color 0.3s, color 0.3s, border 0.3s;
+    }
+
+    .category-btn:hover {
+        background-color: teal;
+        color: white;
+        border: 2px solid #fff;
     }
 </style>
 
@@ -102,8 +140,6 @@ session_start();
 
 </script>
 
-
-
 <body>
     <header>
         <?php include("nav_header.php") ?>
@@ -113,30 +149,14 @@ session_start();
 
     <input type="text" id="searchInput" placeholder="Search for a company...">
 
-<div class="container">
-
-<input type="radio" name="category" id="showall" checked="checked">
-<label for="showall">Show All</label>
-
-<input type="radio" name="category" id="product">
-<label for="product">Product</label>
-
-<input type="radio" name="category" id="service">
-<label for="service">Service</label>
-
-<input type="radio" name="category" id="startup">
-<label for="startup">Startup</label>
-
-<input type="radio" name="category" id="datacenter">
-<label for="datacenter">Datacenter</label>
-
-<input type="radio" name="category" id="research">
-<label for="research">Research</label>
-
-<input type="radio" name="category" id="other">
-<label for="other">Other</label>
-
-</div>
+    <div class="container">
+        <a href="showcomp.php?category=showall" class="category-btn" id="showall">Show All</a>
+        <a href="showcomp.php?category=product" class="category-btn" id="product">Product</a>
+        <a href="showcomp.php?category=service" class="category-btn" id="service">Service</a>
+        <a href="showcomp.php?category=startup" class="category-btn" id="startup">Startup</a>
+        <a href="showcomp.php?category=datacenter" class="category-btn" id="datacenter">Datacenter</a>
+        <a href="showcomp.php?category=research" class="category-btn" id="research">Research</a>
+    </div>
 
     <div id="noResultsMessage">No matching company found!</div>
 
@@ -187,10 +207,69 @@ session_start();
                     </ul>
                 </li>
 
-                <li><a href="#">Startups</a></li>
-                <li><a href="#">Datacenters</a></li>
-                <li><a href="#">Research & Innovation</a></li>
-                <li><a href="#">Other</a></li>
+                <li class="dropdown"><a href="#">Startup<span>&rsaquo;</span></a>
+
+                    <ul>
+                        <?php
+
+                        $service = "SELECT `comp_name` FROM `mnc_info` WHERE comp_category='Startup'";
+                        $result = mysqli_query($con, $service);
+                        while ($row = mysqli_fetch_array($result)) {
+                            ?>
+                            <li><a href="#<?php echo $row['comp_name'] ?>">
+                                    <?php echo $row['comp_name'] ?>
+                                </a></li>
+
+                            <?php
+
+                        }
+
+                        ?>
+                    </ul>
+                </li>
+
+                <li class="dropdown"><a href="#">Datacenter<span>&rsaquo;</span></a>
+
+                    <ul>
+                        <?php
+
+                        $service = "SELECT `comp_name` FROM `mnc_info` WHERE comp_category='Datacenter'";
+                        $result = mysqli_query($con, $service);
+                        while ($row = mysqli_fetch_array($result)) {
+                            ?>
+                            <li><a href="#<?php echo $row['comp_name'] ?>">
+                                    <?php echo $row['comp_name'] ?>
+                                </a></li>
+
+                            <?php
+
+                        }
+
+                        ?>
+                    </ul>
+                </li>
+
+
+                <li class="dropdown"><a href="#">Research & Innovation<span>&rsaquo;</span></a>
+
+                    <ul>
+                        <?php
+
+                        $service = "SELECT `comp_name` FROM `mnc_info` WHERE comp_category='Research'";
+                        $result = mysqli_query($con, $service);
+                        while ($row = mysqli_fetch_array($result)) {
+                            ?>
+                            <li><a href="#<?php echo $row['comp_name'] ?>">
+                                    <?php echo $row['comp_name'] ?>
+                                </a></li>
+
+                            <?php
+
+                        }
+
+                        ?>
+                    </ul>
+                </li>
 
             </ul>
         </nav>
@@ -202,7 +281,8 @@ session_start();
             $result = mysqli_query($con, $sql);
             while ($row = mysqli_fetch_array($result)) {
                 ?>
-                <div class="card" id="<?php echo $row['comp_name'] ?>">
+                <div class="card" id="<?php echo $row['comp_name'] ?>"
+                    data-category="<?php echo strtolower($row['comp_category']); ?>">
                     <div class="img-container">
                         <img src="<?php echo $row['comp_img'] ?>" alt="<?php echo $row['comp_name'] ?>">
                     </div>
