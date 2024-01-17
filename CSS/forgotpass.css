@@ -1,0 +1,28 @@
+/* forgot button styling */
+
+div.popup-container div.popup div.forgot-btn{
+    text-align: right;
+}
+
+div.popup-container div.popup div.forgot-btn button{
+    border: none;
+    background-color: transparent;
+    outline: none;
+    font-weight: 450;
+    cursor: pointer;
+}
+
+/*div#forgot-popup{
+    display: flex;
+}*/
+
+div.popup-container div.forgot button.reset-btn{
+    font-weight: 550;
+    font-style: 15px;
+    color: white;
+    background-color: #30475e;
+    padding: 4px 10px;
+    border: none;
+    outline: none;
+    margin-top: 5px;
+}

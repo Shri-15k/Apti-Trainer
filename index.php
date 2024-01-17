@@ -5,20 +5,22 @@ session_start();
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/forgotpass.css">
 </head>
 
 <body>
     <header>
-    <?php include("nav_header.php") ?>
+        <?php include("nav_header.php") ?>
     </header>
 
-  
+
 
     <div class="popup-container" id="login-popup">
         <div class="popup">
@@ -31,6 +33,9 @@ session_start();
                 <input type="password" placeholder="password" name="password">
                 <button type="submit" class="login-btn" name="login">LOGIN</button>
             </form>
+            <div class="forgot-btn">
+                <button type="button" onclick="forgotPopup()">Forgot Password ?</button>
+            </div>
         </div>
     </div>
 
@@ -51,28 +56,46 @@ session_start();
         </div>
     </div>
 
-    <?php 
-        if(isset($_SESSION['logged_in']) && $_SESSION['logged_in']==true)
-        {
-            echo"<h1 style='text-align: center; margin-top: 200px;'> Welcome  To Apti-Trainer ! $_SESSION[username]</h1>";
-        }
+    <!--forgot pop up code -->
 
-    
+    <div class="popup-container" id="forgot-popup">
+        <div class="forgot popup">
+            <form method="POST" action="forgotpassword.php">
+                <h2>
+                    <span>RESET PASSWORD</span>
+                    <button type="reset" onclick="popup('forgot-popup')">X</button>
+                </h2>
+                <input type="text" placeholder="Email" name="email">
+                <button type="submit" class="reset-btn" name="send-reset-link">SEND LINK</button>
+            </form>
+        </div>
+    </div>
+
+    <?php
+    if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
+        echo "<h1 style='text-align: center; margin-top: 200px;'> Welcome  To Apti-Trainer ! $_SESSION[username]</h1>";
+    }
+
+
     ?>
 
     <script>
-        function popup(popup_name)
-        {
-            get_popup=document.getElementById(popup_name);
-            if(get_popup.style.display=="flex")
-            {
-               get_popup.style.display="none"; 
+        function popup(popup_name) {
+            get_popup = document.getElementById(popup_name);
+            if (get_popup.style.display == "flex") {
+                get_popup.style.display = "none";
             }
-            else
-            {
-                get_popup.style.display="flex";
+            else {
+                get_popup.style.display = "flex";
             }
+        }
+
+        function forgotPopup(){
+            document.getElementById('login-popup').style.display="none";
+            document.getElementById('forgot-popup').style.display="flex";
+
         }
     </script>
 </body>
+
 </html>

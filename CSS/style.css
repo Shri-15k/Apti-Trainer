@@ -110,7 +110,7 @@ div.popup-container div.popup input{
     outline: none;
 }
 
-div.popup-container div.popup button.login-btn,div.popup-container div.register button.register-btn{
+div.popup-container div.popup button.login-btn,div.popup-container div.register button.register-btn,div.popup-container div.forgot button.reset-btn{
     font-weight: 550;
     font-style: 15px;
     color: white;
@@ -149,3 +149,5 @@ div.user{
 div.user a{
     color: #30475e;
 }
+
+
