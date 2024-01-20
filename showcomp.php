@@ -14,10 +14,10 @@ session_start();
     <link rel="stylesheet" href="CSS/style.css">
     <link rel="stylesheet" href="CSS/MNC.css">
     <link rel="stylesheet" href="CSS/sidenav.css">
-
+    <script src="JS/MNC.js"></script>
 </head>
 
-<style>
+<!-- <style>
     #noResultsMessage {
         display: none;
         color: red;
@@ -54,9 +54,9 @@ session_start();
         z-index: 2;
         /* Ensure it appears above other elements */
     }
-</style>
+</style> -->
 
-<script>
+<!-- <script>
     document.addEventListener('DOMContentLoaded', function () {
         const toggleBtn = document.getElementById('toggleBtn');
         const sideNav = document.querySelector('.sidenav');
@@ -99,7 +99,7 @@ session_start();
         });
     });
 
-</script>
+</script> -->
 
 
 <body>
@@ -107,193 +107,197 @@ session_start();
         <?php include("nav_header.php") ?>
     </header>
 
-    <button id="toggleBtn">&#9776;</button>
+    <div id="overlay"></div>
+    <div style="display:flex;margin:10px;">
+        <button id="toggleBtn">&#9776;</button>
 
-    <input type="text" id="searchInput" placeholder="Search for a company...">
-
+        <input type="text" id="searchInput" placeholder="Search for a company...">
+    </div>
     <div id="noResultsMessage">No matching company found!</div>
 
-    <?php
-    if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
-        ?>
-
-
-
-        <nav class="sidenav">
-            <ul>
-                <li class="dropdown"><a href="#">Product<span>&rsaquo;</span></a>
-                    <ul>
-                        <?php
-
-                        $service = "SELECT `comp_name` FROM `mnc_info` WHERE comp_category='Product'";
-                        $result = mysqli_query($con, $service);
-                        while ($row = mysqli_fetch_array($result)) {
-                            ?>
-                            <li><a href="#<?php echo $row['comp_name'] ?>">
-                                    <?php echo $row['comp_name'] ?>
-                                </a></li>
-
-                            <?php
-
-                        }
-
-                        ?>
-                    </ul>
-                </li>
-
-                <li class="dropdown"><a href="#">Service<span>&rsaquo;</span></a>
-
-                    <ul>
-                        <?php
-
-                        $service = "SELECT `comp_name` FROM `mnc_info` WHERE comp_category='Service'";
-                        $result = mysqli_query($con, $service);
-                        while ($row = mysqli_fetch_array($result)) {
-                            ?>
-                            <li><a href="#<?php echo $row['comp_name'] ?>">
-                                    <?php echo $row['comp_name'] ?>
-                                </a></li>
-
-                            <?php
-
-                        }
-
-                        ?>
-                    </ul>
-                </li>
-
-
-                <li class="dropdown"><a href="#">Startup<span>&rsaquo;</span></a>
-
-                    <ul>
-                        <?php
-
-                        $service = "SELECT `comp_name` FROM `mnc_info` WHERE comp_category='Startup'";
-                        $result = mysqli_query($con, $service);
-                        while ($row = mysqli_fetch_array($result)) {
-                            ?>
-                            <li><a href="#<?php echo $row['comp_name'] ?>">
-                                    <?php echo $row['comp_name'] ?>
-                                </a></li>
-
-                            <?php
-
-                        }
-
-                        ?>
-                    </ul>
-                </li>
-
-                <li class="dropdown"><a href="#">Datacenter<span>&rsaquo;</span></a>
-
-                    <ul>
-                        <?php
-
-                        $service = "SELECT `comp_name` FROM `mnc_info` WHERE comp_category='Datacenter'";
-                        $result = mysqli_query($con, $service);
-                        while ($row = mysqli_fetch_array($result)) {
-                            ?>
-                            <li><a href="#<?php echo $row['comp_name'] ?>">
-                                    <?php echo $row['comp_name'] ?>
-                                </a></li>
-
-                            <?php
-
-                        }
-
-                        ?>
-                    </ul>
-                </li>
-
-
-                <li class="dropdown"><a href="#">Research & Innovation<span>&rsaquo;</span></a>
-
-                    <ul>
-                        <?php
-
-                        $service = "SELECT `comp_name` FROM `mnc_info` WHERE comp_category='Research'";
-                        $result = mysqli_query($con, $service);
-                        while ($row = mysqli_fetch_array($result)) {
-                            ?>
-                            <li><a href="#<?php echo $row['comp_name'] ?>">
-                                    <?php echo $row['comp_name'] ?>
-                                </a></li>
-
-                            <?php
-
-                        }
-
-                        ?>
-                    </ul>
-                </li>
-
-
-
-            </ul>
-        </nav>
-
+    <main>
         <?php
+        if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
+            ?>
 
-        // Check if a specific category is selected
-        if (isset($_GET['category'])) {
-            $selectedCategory = $_GET['category'];
 
-            // Check if the selected category is "showall"
-            if ($selectedCategory == 'showall') {
+
+            <nav class="sidenav">
+                <ul>
+                    <li class="dropdown"><a href="#">Product<span>&rsaquo;</span></a>
+                        <ul>
+                            <?php
+
+                            $service = "SELECT `comp_name` FROM `mnc_info` WHERE comp_category='Product'";
+                            $result = mysqli_query($con, $service);
+                            while ($row = mysqli_fetch_array($result)) {
+                                ?>
+                                <li><a href="#<?php echo $row['comp_name'] ?>">
+                                        <?php echo $row['comp_name'] ?>
+                                    </a></li>
+
+                                <?php
+
+                            }
+
+                            ?>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown"><a href="#">Service<span>&rsaquo;</span></a>
+
+                        <ul>
+                            <?php
+
+                            $service = "SELECT `comp_name` FROM `mnc_info` WHERE comp_category='Service'";
+                            $result = mysqli_query($con, $service);
+                            while ($row = mysqli_fetch_array($result)) {
+                                ?>
+                                <li><a href="#<?php echo $row['comp_name'] ?>">
+                                        <?php echo $row['comp_name'] ?>
+                                    </a></li>
+
+                                <?php
+
+                            }
+
+                            ?>
+                        </ul>
+                    </li>
+
+
+                    <li class="dropdown"><a href="#">Startup<span>&rsaquo;</span></a>
+
+                        <ul>
+                            <?php
+
+                            $service = "SELECT `comp_name` FROM `mnc_info` WHERE comp_category='Startup'";
+                            $result = mysqli_query($con, $service);
+                            while ($row = mysqli_fetch_array($result)) {
+                                ?>
+                                <li><a href="#<?php echo $row['comp_name'] ?>">
+                                        <?php echo $row['comp_name'] ?>
+                                    </a></li>
+
+                                <?php
+
+                            }
+
+                            ?>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown"><a href="#">Datacenter<span>&rsaquo;</span></a>
+
+                        <ul>
+                            <?php
+
+                            $service = "SELECT `comp_name` FROM `mnc_info` WHERE comp_category='Datacenter'";
+                            $result = mysqli_query($con, $service);
+                            while ($row = mysqli_fetch_array($result)) {
+                                ?>
+                                <li><a href="#<?php echo $row['comp_name'] ?>">
+                                        <?php echo $row['comp_name'] ?>
+                                    </a></li>
+
+                                <?php
+
+                            }
+
+                            ?>
+                        </ul>
+                    </li>
+
+
+                    <li class="dropdown"><a href="#">Research & Innovation<span>&rsaquo;</span></a>
+
+                        <ul>
+                            <?php
+
+                            $service = "SELECT `comp_name` FROM `mnc_info` WHERE comp_category='Research'";
+                            $result = mysqli_query($con, $service);
+                            while ($row = mysqli_fetch_array($result)) {
+                                ?>
+                                <li><a href="#<?php echo $row['comp_name'] ?>">
+                                        <?php echo $row['comp_name'] ?>
+                                    </a></li>
+
+                                <?php
+
+                            }
+
+                            ?>
+                        </ul>
+                    </li>
+
+
+
+                </ul>
+            </nav>
+
+            <?php
+
+            // Check if a specific category is selected
+            if (isset($_GET['category'])) {
+                $selectedCategory = $_GET['category'];
+
+                // Check if the selected category is "showall"
+                if ($selectedCategory == 'showall') {
+                    $sql = "SELECT * FROM mnc_info";
+                    $pageTitle = "All Companies";
+                } else {
+                    $sql = "SELECT * FROM mnc_info WHERE comp_category = '$selectedCategory'";
+                    $pageTitle = ucfirst($selectedCategory) . " Companies";
+                }
+            } else {
+                // If no specific category is selected, show all companies
                 $sql = "SELECT * FROM mnc_info";
                 $pageTitle = "All Companies";
-            } else {
-                $sql = "SELECT * FROM mnc_info WHERE comp_category = '$selectedCategory'";
-                $pageTitle = ucfirst($selectedCategory) . " Companies";
-            }
-        } else {
-            // If no specific category is selected, show all companies
-            $sql = "SELECT * FROM mnc_info";
-            $pageTitle = "All Companies";
-        }
-
-        $result = mysqli_query($con, $sql);
-        ?>
-
-        <div class="card-body">
-            <?php
-            while ($row = mysqli_fetch_array($result)) {
-                ?>
-                <div class="card" id="<?php echo $row['comp_name'] ?>">
-                    <div class="img-container">
-                        <img src="<?php echo $row['comp_img'] ?>" alt="<?php echo $row['comp_name'] ?>">
-                    </div>
-                    <div class="card-content">
-                        <h1>
-                            <?php echo $row['comp_name'] ?>
-                        </h1>
-                        <div class="description">
-                            <?php echo $row['comp_description'] ?>
-                        </div>
-                        <div class="description">
-                            <?php echo $row['comp_apti'] ?>
-                        </div>
-                        <div class="link">
-                            If you would like to know more about <em><strong>
-                                    <?php echo $row['comp_name']; ?>
-                                </strong></em>: <a href="<?php echo $row['comp_website']; ?>" target="_blank"
-                                class="button">Click Here</a>
-                        </div>
-                    </div>
-                </div>
-                <?php
-
             }
 
+            $result = mysqli_query($con, $sql);
             ?>
-        </div>
-    <?php } else {
-        echo "
+
+            <div class="card-body">
+                <?php
+                while ($row = mysqli_fetch_array($result)) {
+                    ?>
+                    <div class="card" id="<?php echo $row['comp_name'] ?>">
+                        <div class="img-container">
+                            <img src="<?php echo $row['comp_img'] ?>" alt="<?php echo $row['comp_name'] ?>">
+                        </div>
+                        <div class="card-content">
+                            <h1>
+                                <?php echo $row['comp_name'] ?>
+                            </h1>
+                            <div class="description">
+                                <?php echo $row['comp_description'] ?>
+                            </div>
+                            <div class="description">
+                                <?php echo $row['comp_apti'] ?>
+                            </div>
+                            <div class="link">
+                                If you would like to know more about <em><strong>
+                                        <?php echo $row['comp_name']; ?>
+                                    </strong></em>: <a href="<?php echo $row['comp_website']; ?>" target="_blank"
+                                    class="button">Click Here</a>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+
+                }
+
+                ?>
+            </div>
+        <?php } else {
+            echo "
         <script>alert('Please LogIn!');
         window.location.href='index.php';
         </script>
         ";
-    } ?>
+        } ?>
+    </main>
 </body>
 
 </html>
