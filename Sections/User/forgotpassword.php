@@ -1,5 +1,5 @@
 <?php
-require("connection.php");
+require("../../db/connection.php");
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -7,9 +7,9 @@ use PHPMailer\PHPMailer\Exception;
 
 function sendMail($email, &$reset_token)
 {
-    require("PHPMailer/PHPMailer.php");
-    require("PHPMailer/SMTP.php");
-    require("PHPMailer/Exception.php");
+    require("../../components/PHPMailer/PHPMailer.php");
+    require("../../components/PHPMailer/SMTP.php");
+    require("../../components/PHPMailer/Exception.php");
 
     $mail = new PHPMailer(true);
 
@@ -33,7 +33,7 @@ function sendMail($email, &$reset_token)
         $mail->Subject = 'Password Reset Link From Apti Trainer';
         $mail->Body = "We Got A Request From You To Reset Your Password ! <br>
         Click The Link Below To Reset Your Password : <br>
-        <a href='http://localhost/AptiTrainer/updatepassword.php?email=$email&reset_token=$reset_token'>Reset Password</a>";
+        <a href='http://localhost/AptiTrainer/Sections/User/updatepassword.php?email=$email&reset_token=$reset_token'>Reset Password</a>";
 
 
         $mail->send();
@@ -60,14 +60,14 @@ if (isset($_POST['send-reset-link'])) {
                 echo "
                 <script>
                 alert('Password Reset Link Sent To Mail !');
-                window.location.href='index.php';
+                window.location.href='../../index.php';
                 </script>
                 ";
             } else {
                 echo "
                 <script>
                 alert('Server Down ! Try Again Later');
-                window.location.href='index.php';
+                window.location.href='../../index.php';
                 </script>
                 ";
             }
@@ -75,7 +75,7 @@ if (isset($_POST['send-reset-link'])) {
             echo "
         <script>
         alert('Invalid Email ! or Email Not Found');
-        window.location.href='index.php';
+        window.location.href='../../index.php';
         </script>
         ";
         }
@@ -84,7 +84,7 @@ if (isset($_POST['send-reset-link'])) {
         <script>
 
         alert('Something Went Wrong ! Request Denied');
-        window.location.href='index.php';
+        window.location.href='../../index.php';
         </script>
         ";
     }

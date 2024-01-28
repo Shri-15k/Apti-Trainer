@@ -1,0 +1,183 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins';
+}
+
+.container{
+    min-height: 100vh;
+    width: 100%;
+    background-color: #f9f9ec;
+}
+
+.quantitative-wrapper{
+    padding: 5% 8%;
+}
+
+.quantitative{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1{
+    color: #fff;
+    font-size: 5rem;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: transparent;
+    letter-spacing: 4px;
+    background-color: rgb(4, 52, 83);
+    background: linear-gradient(8deg,rgb(1, 21, 35) 0%,rgb(3, 169, 128) 41%,rgb(49, 2, 57) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+
+}
+
+h1:after{
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 10%;
+    height: 8px;
+    width: 80%;
+    border-radius: 8px;
+    background-color: rgba(6, 0, 0, 0.05);
+}
+
+h1 span{
+    position:absolute;
+    top: 100%;
+    left: 10%;
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background-color: #72e2ae;
+    animation: anim 5s linear infinite;
+
+}
+
+@keyframes anim{
+    95%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 0;
+        left: 88%;
+    }
+}
+
+.cards-container {
+    width: 100%;
+    max-width: 1000px; /* Adjust the maximum width of the cards container */
+    height: fit-content; /* Automatically adjusts its height based on content */
+    margin-top: 35px; /* Adjust margin as needed */
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: #a7f8f8;
+    padding: 20px; /* Padding around the cards */
+    box-sizing: border-box; /* Ensure padding doesn't affect the width */
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Transition effect */
+}
+
+.cards-container:hover {
+    border: 2px solid #008080; /* Border with different color */
+
+    background-color: transparent; /* Change color on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Change shadow on hover */
+}
+
+.cards{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 0; /* Adjust top margin */
+    align-content: center; /* Align the grid content vertically */
+    justify-content: center; /* Align the grid content horizontally */
+}
+
+.card{
+    height: 160px;
+    width: 450px;
+    background-color: #074848;
+    padding: 3% 8%;
+    border: 0.2px solid rgb(114, 226, 174, 0.2);
+    border-radius: 10px;
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.card:after{
+    content: "";
+    position: absolute;
+    top: 150%;
+    left: -200px;
+    width: 120%;
+    
+    transform: rotateY(180deg);
+    background-color: #fff;
+    height: 18px;
+    filter: blur(30px);
+    opacity: 0.5;
+    transition: 1s;
+}
+
+.card:hover:after{
+    width: 225%;
+    top: -100%;
+    
+
+}
+
+
+
+.card h2{
+    color: #fff;
+    text-align: center;
+    font-size: 35px;
+    font-weight: 600;
+    letter-spacing: 1px;
+
+}
+
+
+.card:hover {
+    background-color: #000000;
+    transform: translateY(-8px);
+    border-color: #00ff37;
+    
+}
+
+
+
+.view-topics-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #008080; /* Color for the buttons */
+    color: #FFFFFF; /* Text color for the buttons */
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.view-topics-button:hover {
+    background-color: #6b7d7a; /* Hover color for the buttons */
+    color: #000000; /* Text hover color for the buttons */
+}
+
+

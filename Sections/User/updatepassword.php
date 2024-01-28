@@ -60,7 +60,7 @@
 <body>
     <?php
 
-    require("connection.php");
+    require("../../db/connection.php");
 
     if (isset($_GET['email']) && isset($_GET['reset_token'])) {
         date_default_timezone_set('Asia/kolkata');
@@ -84,7 +84,7 @@
                 echo "
                 <script>
                 alert('Invalid or Expired Link');
-                window.location.href='index.php';
+                window.location.href='../../index.php';
                 </script>
                 ";
 
@@ -94,7 +94,7 @@
             echo "
             <script>
             alert('Server Down ! Try Again Later');
-            window.location.href='index.php';
+            window.location.href='../../index.php';
             </script>
             ";
         }
@@ -114,7 +114,7 @@
             echo "
             <script>
             alert('Password Updated Successfully !');
-            window.location.href='index.php';
+            window.location.href='../../index.php';
             </script>
             ";
 
@@ -122,7 +122,7 @@
             echo "
             <script>
             alert('Server Down ! Try Again Later');
-            window.location.href='index.php';
+            window.location.href='../../index.php';
             </script>
             ";
         }

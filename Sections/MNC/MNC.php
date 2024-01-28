@@ -1,5 +1,5 @@
 <?php
-require('connection.php');
+require('../../db/connection.php');
 session_start();
 ?>
 
@@ -11,100 +11,53 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MNC</title>
-    <link rel="stylesheet" href="CSS/style.css">
-    <link rel="stylesheet" href="CSS/MNC.css">
-    <link rel="stylesheet" href="CSS/sidenav.css">
-    <script src="JS/MNC.js"></script>
+    <link rel="stylesheet" href="../../resources/CSS/style.css">
+    <link rel="stylesheet" href="../../resources/CSS/MNC.css">
+    <link rel="stylesheet" href="../../resources/CSS/sidenav.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="../../resources/JS/MNC.js"></script>
+
 </head>
 
-<!-- <style>
-    #noResultsMessage {
-        display: none;
-        color: red;
+<style>
+    .header-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .header-section h1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-self: center;
+        width: 100%;
+    }
+
+
+    .tag-section {
+        display: flex;
+        align-items: center;
+    }
+
+    .tag-section img {
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+    }
+
+    .category-text {
         font-weight: bold;
-        margin-top: 10px;
-        text-align: center;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: #fff;
-        /* Background color for better visibility */
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        z-index: 6;
-        /* Adjusted z-index to make it appear above everything */
     }
-
-    #searchInput {
-        margin-left: 100px;
-        /* Adjust the margin to create space between the toggle button and search bar */
-        margin-right: 10px;
-        /* Add margin to the right to separate the search bar and toggle button */
-        padding: 8px;
-        border: 2px solid #000;
-        border-radius: 5px;
-        font-size: 14px;
-        position: absolute;
-        top: 100px;
-        /* Adjust the top value to position it correctly */
-        left: 60px;
-        /* Adjust the left value to position it correctly */
-        z-index: 2;
-        /* Ensure it appears above other elements */
-    }
-</style> -->
-
-<!-- <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const toggleBtn = document.getElementById('toggleBtn');
-        const sideNav = document.querySelector('.sidenav');
-        const searchInput = document.getElementById('searchInput');
-        const cards = document.querySelectorAll('.card');
-        const noResultsMessage = document.getElementById('noResultsMessage');
-
-        toggleBtn.addEventListener('click', function () {
-            sideNav.classList.toggle('open');
-        });
-
-        // Add an event listener for the input field
-        searchInput.addEventListener('input', function () {
-            const searchTerm = searchInput.value.trim().toLowerCase();
-            let matchFound = false; // Flag to check if any match is found
-
-            // Loop through all cards and hide/show based on the search term
-            cards.forEach(function (card) {
-                const cardName = card.id.toLowerCase();
-                const cardContent = card.textContent.toLowerCase();
-
-                if (cardName.includes(searchTerm) || cardContent.includes(searchTerm)) {
-                    card.style.display = 'flex'; // Show the card
-                    matchFound = true;
-                } else {
-                    card.style.display = 'none'; // Hide the card
-                }
-            });
-
-            // Show/hide the "no results" message
-            noResultsMessage.style.display = matchFound ? 'none' : 'block';
-        });
-
-        // Add click event listeners to scroll to the clicked card
-        cards.forEach(function (card) {
-            card.addEventListener('click', function () {
-                // Scroll to the clicked card
-                window.location.hash = '#' + card.id;
-            });
-        });
-    });
-
-</script> -->
-
+</style>
 
 <body>
-    <header>
-        <?php include("nav_header.php") ?>
+    <header id="header">
+        <?php 
+            $path = "../..";
+            include("../../components/nav_header.php") ;
+        ?>
     </header>
 
     <div id="overlay"></div>
@@ -112,15 +65,23 @@ session_start();
         <button id="toggleBtn">&#9776;</button>
 
         <input type="text" id="searchInput" placeholder="Search for a company...">
+
+        <div class="container">
+            <a href="showcomp.php?category=showall" class="category-btn" id="showall">Show All</a>
+            <a href="showcomp.php?category=product" class="category-btn" id="product">Product</a>
+            <a href="showcomp.php?category=service" class="category-btn" id="service">Service</a>
+            <a href="showcomp.php?category=startup" class="category-btn" id="startup">Startup</a>
+            <a href="showcomp.php?category=datacenter" class="category-btn" id="datacenter">Datacenter</a>
+            <a href="showcomp.php?category=research" class="category-btn" id="research">Research</a>
+        </div>
     </div>
+
     <div id="noResultsMessage">No matching company found!</div>
 
     <main>
         <?php
         if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
             ?>
-
-
 
             <nav class="sidenav">
                 <ul>
@@ -164,7 +125,6 @@ session_start();
                             ?>
                         </ul>
                     </li>
-
 
                     <li class="dropdown"><a href="#">Startup<span>&rsaquo;</span></a>
 
@@ -230,46 +190,34 @@ session_start();
                         </ul>
                     </li>
 
-
-
                 </ul>
             </nav>
 
-            <?php
-
-            // Check if a specific category is selected
-            if (isset($_GET['category'])) {
-                $selectedCategory = $_GET['category'];
-
-                // Check if the selected category is "showall"
-                if ($selectedCategory == 'showall') {
-                    $sql = "SELECT * FROM mnc_info";
-                    $pageTitle = "All Companies";
-                } else {
-                    $sql = "SELECT * FROM mnc_info WHERE comp_category = '$selectedCategory'";
-                    $pageTitle = ucfirst($selectedCategory) . " Companies";
-                }
-            } else {
-                // If no specific category is selected, show all companies
-                $sql = "SELECT * FROM mnc_info";
-                $pageTitle = "All Companies";
-            }
-
-            $result = mysqli_query($con, $sql);
-            ?>
-
             <div class="card-body">
                 <?php
+
+                $sql = "SELECT * FROM mnc_info";
+                $result = mysqli_query($con, $sql);
                 while ($row = mysqli_fetch_array($result)) {
                     ?>
-                    <div class="card" id="<?php echo $row['comp_name'] ?>">
+                    <div class="card" id="<?php echo $row['comp_name'] ?>"
+                        data-category="<?php echo strtolower($row['comp_category']); ?>">
                         <div class="img-container">
-                            <img src="<?php echo $row['comp_img'] ?>" alt="<?php echo $row['comp_name'] ?>">
+                            <img src="../../resources/<?php echo $row['comp_img'] ?>" alt="<?php echo $row['comp_name'] ?>">
                         </div>
                         <div class="card-content">
-                            <h1>
-                                <?php echo $row['comp_name'] ?>
-                            </h1>
+                            <div class="header-section">
+                                <h1>
+                                    <?php echo $row['comp_name'] ?>
+                                </h1>
+                                <div class="tag-section">
+                                    <img src="../../resources/images/tag.png" alt="Tag Icon">
+                                    <!-- Replace 'path/to/tag-icon.png' with the actual path to your tag icon -->
+                                    <span class="category-text">
+                                        <?php echo $row['comp_category']; ?>
+                                    </span>
+                                </div>
+                            </div>
                             <div class="description">
                                 <?php echo $row['comp_description'] ?>
                             </div>
@@ -292,12 +240,13 @@ session_start();
             </div>
         <?php } else {
             echo "
-        <script>alert('Please LogIn!');
-        window.location.href='index.php';
-        </script>
-        ";
+                <script>alert('Please LogIn!');
+                window.location.href='../../index.php';
+                </script>
+                ";
         } ?>
     </main>
+
 </body>
 
 </html>

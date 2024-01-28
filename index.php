@@ -1,5 +1,5 @@
 <?php
-require('connection.php');
+require('db/connection.php');
 session_start();
 ?>
 
@@ -11,20 +11,23 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="CSS/style.css">
-    <link rel="stylesheet" href="CSS/forgotpass.css">
+    <link rel="stylesheet" href="resources/CSS/style.css">
+    <link rel="stylesheet" href="resources/CSS/forgotpass.css">
 </head>
 
 <body>
     <header>
-        <?php include("nav_header.php") ?>
+        <?php 
+            $path = ".";  
+            include("components/nav_header.php") ;
+        ?>
     </header>
 
 
 
     <div class="popup-container" id="login-popup">
         <div class="popup">
-            <form method="POST" action="login_register.php">
+            <form method="POST" action="Sections/User/login_register.php">
                 <h2>
                     <span>USER LOGIN</span>
                     <button type="reset" onclick="popup('login-popup')">X</button>
@@ -42,7 +45,7 @@ session_start();
 
     <div class="popup-container" id="register-popup">
         <div class="register popup">
-            <form method="POST" action="login_register.php">
+            <form method="POST" action="Sections/User/login_register.php">
                 <h2>
                     <span>USER REGISTER</span>
                     <button type="reset" onclick="popup('register-popup')">X</button>
@@ -60,7 +63,7 @@ session_start();
 
     <div class="popup-container" id="forgot-popup">
         <div class="forgot popup">
-            <form method="POST" action="forgotpassword.php">
+            <form method="POST" action="Sections/User/forgotpassword.php">
                 <h2>
                     <span>RESET PASSWORD</span>
                     <button type="reset" onclick="popup('forgot-popup')">X</button>

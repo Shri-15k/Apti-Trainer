@@ -1,5 +1,5 @@
 <?php
-require('connection.php');
+require('../../db/connection.php');
 session_start();
 ?>
 
@@ -12,15 +12,18 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Topics Dashboard</title>
-    <link rel="stylesheet" href="CSS/stylecatdash.css">
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="../../resources/CSS/stylecatdash.css">
+    <link rel="stylesheet" href="../../resources/CSS/style.css">
 
 
 </head>
 
 <body>
     <header>
-        <?php include("nav_header.php") ?>
+        <?php 
+            $path = "../..";
+            include("../../components/nav_header.php"); 
+        ?>
     </header>
     <?php
     if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
@@ -35,7 +38,7 @@ session_start();
                             <i class="fas fa-chart-bar"></i>
                             <h2>Quantitative</h2>
                             <p>"Master the numbers and calculations."</p>
-                            <button class="view-topics-button" onclick="location.href='quantitative_topics.html'">View
+                            <button class="view-topics-button" onclick="location.href='arithmatic_topics.php'">View
                                 Topics</button>
                         </div>
                         <div class="card">
@@ -77,14 +80,14 @@ session_start();
                 </div>
             </div>
 
-        
+
 
         </div>
-    
+
     <?php } else {
         echo "
         <script>alert('Please LogIn!');
-        window.location.href='index.php';
+        window.location.href='../../index.php';
         </script>
         ";
     } ?>

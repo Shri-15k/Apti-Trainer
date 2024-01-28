@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AptiTrainer</title>
-    <link rel="stylesheet" href="CSS/homepage.css">
+    <link rel="stylesheet" href="resources/CSS/homepage.css">
 </head>
 
 <style>
@@ -74,7 +74,7 @@
 <div class="card-container"onmouseover="resetDropdown(event)">
     <div class="card">
 
-        <img src="images/study.png" class="card-image ce" alt="logo">
+        <img src="resources/images/study.png" class="card-image ce" alt="logo">
 
         <h2>Welcome To Apti Trainer</h2>
 

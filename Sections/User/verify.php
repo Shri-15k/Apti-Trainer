@@ -1,5 +1,5 @@
 <?php
-require("connection.php");
+require("../../db/connection.php");
 
 if(isset($_GET['email']) && isset($_GET['v_code']))
 {
@@ -18,7 +18,7 @@ if(isset($_GET['email']) && isset($_GET['v_code']))
                     echo"
                     <script>
                     alert('Email Verification Successful');
-                    window.location.href='index.php';
+                    window.location.href='../../index.php';
                     </script>
                     ";
                     
@@ -28,7 +28,7 @@ if(isset($_GET['email']) && isset($_GET['v_code']))
                     echo"
                     <script>
                     alert('Query Not Executed');
-                    window.location.href='index.php';
+                    window.location.href='../../index.php';
                     </script>
                     ";
 
@@ -40,7 +40,7 @@ if(isset($_GET['email']) && isset($_GET['v_code']))
               echo"
               <script>
               alert('Email Already Registered');
-              window.location.href='index.php';
+              window.location.href='../../index.php';
               </script>
               ";
 
@@ -52,7 +52,7 @@ if(isset($_GET['email']) && isset($_GET['v_code']))
         echo"
             <script>
             alert('Query Not Executed');
-            window.location.href='index.php';
+            window.location.href='../../index.php';
             </script>
             ";
 

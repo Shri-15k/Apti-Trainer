@@ -1,5 +1,5 @@
 <?php 
-require('connection.php');
+require('../../db/connection.php');
 session_start();
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -8,9 +8,9 @@ use PHPMailer\PHPMailer\Exception;
 
 function sendMail($email,$v_code)
 {
-    require ("PHPMailer/PHPMailer.php");
-    require ("PHPMailer/SMTP.php");
-    require ("PHPMailer/Exception.php");
+    require ("../../components/PHPMailer/PHPMailer.php");
+    require ("../../components/PHPMailer/SMTP.php");
+    require ("../../components/PHPMailer/Exception.php");
 
     $mail = new PHPMailer(true);
 
@@ -37,7 +37,7 @@ function sendMail($email,$v_code)
         $mail->Subject = 'Email Verification From Apti Trainer';
         $mail->Body    = "Thanks For Registration ! 
         Click The Link Below To Verify The Email Address
-        <a href='http://localhost/AptiTrainer/verify.php?email=$email&v_code=$v_code'>Verify</a>";
+        <a href='http://localhost/AptiTrainer/Sections/User/verify.php?email=$email&v_code=$v_code'>Verify</a>";
         
     
         $mail->send();
@@ -69,7 +69,7 @@ if(isset($_POST['login']))
                     #echo"right";
                     $_SESSION['logged_in']=true;
                     $_SESSION['username']=$result_fetch['username'];
-                    header("location: index.php");
+                    header("location: ../../index.php");
     
     
                 }
@@ -78,7 +78,7 @@ if(isset($_POST['login']))
                     #if password not matched
                     echo"
                     <script>alert('Incorrect Password');
-                    window.location.href='index.php';
+                    window.location.href='../../index.php';
                     </script>
                     ";
     
@@ -89,7 +89,7 @@ if(isset($_POST['login']))
             {
                 echo"
                 <script>alert('Email Not Verified');
-                window.location.href='index.php';
+                window.location.href='../../index.php';
                 </script>
                 ";
 
@@ -100,7 +100,7 @@ if(isset($_POST['login']))
         {
             echo"
             <script>alert('Invalid Credentials');
-            window.location.href='index.php';
+            window.location.href='../../index.php';
             </script>
             ";
         }
@@ -110,7 +110,7 @@ if(isset($_POST['login']))
     {
         echo"
                 <script>alert('query not executed');
-                window.location.href='index.php';
+                window.location.href='../../index.php';
                 </script>
         ";
         
@@ -137,7 +137,7 @@ if(isset($_POST['register']))
                 echo"
                     <script>
                     alert(' $result_fetch[username] : This Username Already Exists');
-                    window.location.href='index.php';
+                    window.location.href='../../index.php';
                     </script>
                 ";
             }
@@ -146,7 +146,7 @@ if(isset($_POST['register']))
             echo"
             <script>
             alert(' $result_fetch[email] : This Email Already Exists');
-            window.location.href='index.php';
+            window.location.href='../../index.php';
             </script>
             ";
             }
@@ -160,7 +160,7 @@ if(isset($_POST['register']))
             {
                 echo"
                 <script>alert('Registration Successful');
-                window.location.href='index.php';
+                window.location.href='../../index.php';
                 </script>
                 ";
 
@@ -169,7 +169,7 @@ if(isset($_POST['register']))
             {
                 echo"
                 <script>alert('query not executed');
-                window.location.href='index.php';
+                window.location.href='../../index.php';
                 </script>
                 ";
 
@@ -181,7 +181,7 @@ if(isset($_POST['register']))
     {
         echo"
         <script>alert('query not executed');
-        window.location.href='index.php';
+        window.location.href='../../index.php';
         </script>
         ";
     }
