@@ -117,7 +117,6 @@ session_start();
                                 <li><a href="#<?php echo $row['comp_name'] ?>">
                                         <?php echo $row['comp_name'] ?>
                                     </a></li>
-
                                 <?php
 
                             }

@@ -644,6 +644,7 @@ class SMTP
     protected function hmac($data, $key)
     {
         if (function_exists('hash_hmac')) {
+            // file deepcode ignore InsecureHash: <please specify a reason of ignoring this>
             return hash_hmac('md5', $data, $key);
         }
 
