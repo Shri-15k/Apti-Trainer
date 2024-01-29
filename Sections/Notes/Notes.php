@@ -15,7 +15,7 @@ session_start();
     <link rel="stylesheet" href="../../resources/CSS/sidenav.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="../../resources/CSS/Notes.css">
-    <script src="../../resources/JS/Notes.js"></script>
+    <script src="../../resources/JS/Notes.js" defer></script>
 </head>
 
 <body>
