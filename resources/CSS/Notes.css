@@ -1,0 +1,105 @@
+.card-body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 20px;
+  gap: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  background-color: #f0f0f0;
+  flex-direction: column;
+}
+
+.card {
+  width: 100%;
+  height: relative;
+  /* Set a maximum width if needed */
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.card>.img-container {
+  width: max-content;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+.card>.img-container>img {
+  width: 50%;
+  align-self: center;
+  padding: 10px;
+  /* display: block; */
+}
+
+.card-content {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  padding: 20px;
+  /* gap: 20px; */
+  justify-content: space-between;
+  align-items: center;
+}
+
+.plus-icon{
+  height: 40px;
+  width: 40px;
+  transition: transform 0.75s ease-in-out;
+}
+
+.plus-icon:hover{
+  /* transform: rotate(-360deg); */
+  cursor: pointer;
+}
+
+.plus-icon.active{
+  transform: rotate(45deg);
+}
+
+.card-content h1 {
+  margin-top: 0;
+}
+
+.item{
+  width: 100%;
+}
+
+.item .content{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.item .content table{
+  margin-left: 10%;
+  border-collapse: collapse;
+  width: 80%;
+  background-color: white;
+}
+.item .content table tr th,.item .content table tr td{
+  border: 1px solid black;
+}
+.item .content table tr td{
+  text-align: center;
+}
+.item .content table tr td img{
+  width: 30px;
+  margin: 3px 0 0 0;
+}
+.content table{
+  display: none;
+}
+table.display{
+  display: inline-table;
+}
