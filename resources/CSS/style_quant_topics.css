@@ -11,11 +11,11 @@
     background-color: #f9f9ec;
 }
 
-.quantitative-wrapper{
+.category-wrapper{
     padding: 5% 8%;
 }
 
-.quantitative{
+.category{
     display: flex;
     flex-direction: column;
     align-items: center;
