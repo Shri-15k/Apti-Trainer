@@ -1,0 +1,33 @@
+/* CSS for company tags card */
+.company-tags-card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border: 2px solid #333;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 90%;
+  max-height: 90%;
+  overflow-y: auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.company-tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.company-tag {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #eee;
+  color: #333;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 50%;
+  max-width: 200px; /* Set a maximum width */
+  flex: 0 0 calc(33.33% - 20px); /* Force each tag to take up 33.33% of the container width (adjust based on margin) */
+}
