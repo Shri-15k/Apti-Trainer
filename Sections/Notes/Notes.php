@@ -74,10 +74,10 @@ session_start();
                                 <tr>
                                     <td><?php echo $row['notes_name'] ?></td>
                                     
-                                    <td><a href = 'DetailNote.php?data=<?php echo urlencode(serialize($row['view_notes'])) ?>'><img src="../../resources/images/short-note.png" alt="view"></a></td>
+                                    <td><a href='DetailNote.php?data=<?php echo $row['notes_name'] ?>'><img src="../../resources/images/short-note.png" alt="view"></a></td>
                                     <td><a href = 'downloads/<?php echo $row['download_notes'] ?>' target="_blank"> <img src="../../resources/images/download.png" alt="download"></a></td>
                                     <td><a href = '<?php echo $row['youtube_link'] ?>' target="_blank"><img src="../../resources/images/youtube.png" alt="problems"></a></td>
-                                    <td><img src="../../resources/images/tag.png" alt="company tags"></td>
+                                    <td><a href='CompTags.php?data=<?php echo $row['notes_name'] ?>'><img src="../../resources/images/tag.png" alt="company tags"></td>
                                 </tr>
                                 <?php
                                         }
