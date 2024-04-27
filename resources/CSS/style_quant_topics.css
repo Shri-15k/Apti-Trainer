@@ -2,20 +2,21 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'poppins';
+    
 }
 
 .container{
-    min-height: 100vh;
+    
     width: 100%;
-    background-color: #f9f9ec;
+    
+    
 }
 
-.category-wrapper{
-    padding: 5% 8%;
+body{
+    
 }
 
-.category{
+.quantitative{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -32,6 +33,8 @@ h1{
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     position: relative;
+    display: flex;
+    justify-content: center;
 
 }
 
@@ -43,7 +46,8 @@ h1:after{
     height: 8px;
     width: 80%;
     border-radius: 8px;
-    background-color: rgba(6, 0, 0, 0.05);
+    
+    margin-left: -100px;
 }
 
 h1 span{
@@ -79,7 +83,7 @@ h1 span{
     background-color: #a7f8f8;
     padding: 20px; /* Padding around the cards */
     box-sizing: border-box; /* Ensure padding doesn't affect the width */
-
+    margin-left: 220px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
     transition: background-color 0.3s, box-shadow 0.3s; /* Transition effect */
 }
@@ -93,7 +97,7 @@ h1 span{
 
 .cards{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    /*grid-template-columns: repeat(2, 1fr);*/
     gap: 30px;
     margin-top: 0; /* Adjust top margin */
     align-content: center; /* Align the grid content vertically */

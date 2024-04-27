@@ -42,6 +42,7 @@ session_start();
                     <h1><?php echo $row1['cat_name']?><span></span></h1>
 
 
+                    <div>
                     <?php
                     $sql = "SELECT * FROM topics WHERE cat_id=$data";
                     $result = mysqli_query($con, $sql);
@@ -58,7 +59,6 @@ session_start();
                                     <div class="buttons">
                                         <a href="practice_page.html" class="view-topics-button">Practice</a>
                                         <a href="quiz_page.html" class="view-topics-button">Quiz</a>
-                                        <a href="notes_page.html" class="view-topics-button">Notes</a>
                                     </div>
                                 </div>
 
@@ -77,6 +77,7 @@ session_start();
                 ?>
 
                     ?>
+                    </div>
         </div>
     <?php } else {
         echo "
