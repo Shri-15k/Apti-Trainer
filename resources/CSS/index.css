@@ -1,0 +1,107 @@
+body{
+  background-color: #f0f1ee;
+}
+
+.main{
+  flex:1;
+  display: flex;
+  align-items: center;
+}
+
+.main:hover {
+  transform: scale(1.02); /* Increase the size of the section on hover */
+  transition: transform 0.3s ease; /* Add smooth transition for a smoother effect */
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); /* Add a subtle shadow effect */
+  background-color: rgba(227, 193, 228, 0.635);
+}
+
+.right img{
+  width:100%;
+}
+
+.left{
+  max-width: 45%;
+  padding:  40px 60px;
+}
+
+.right{
+  padding:40px 48px;
+}
+
+.right2{
+  max-width: 45%;
+  padding:  40px 60px;
+}
+.left2 img{
+  width:70%;
+}
+
+.title{
+  color: #8a4a2e;
+  font-size: 3.2em;
+  width: 100%;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 48px;
+  position: relative; /* Ensure relative positioning */
+}
+
+.title2{
+  color: #8a4a2e;
+  font-size: 3.2em;
+  width: 100%;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 48px;
+
+}
+
+.title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -7px; /* Adjust the distance of the underline from the text */
+  width: 70%; /* Start from the left and end at the right */
+  height: 5px; /* Thickness of the underline */
+  background-color: #8a4a2e; /* Color of the underline */
+   /* Animation properties */
+   background: linear-gradient(to left, transparent, #4d2839); /* Gradient for fading effect */
+   
+}
+
+
+@keyframes running-underline {
+  0% {
+      transform: translateX(0); /* Start position */
+  }
+  100% {
+      transform: translateX(30%); /* End position */
+  }
+}
+
+.msg{
+  color: #1e3751;
+  font-size: 1.1em;
+  letter-spacing: 0.7px;
+  line-height: 32px;
+  margin-bottom: 48px;
+}
+
+button.cta{
+  border: none;
+  outline: none;
+  background-color: #711def;
+  color: #fff;
+  padding: 18px 32px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  border-radius: 30px;
+  box-shadow: 0 20px 35px rgba(0,0,0,0,1),0 15px 12px rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: opacity 0.9;
+}
+
+button.cta.hover{
+  opacity: 0.9;
+}

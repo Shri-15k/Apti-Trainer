@@ -10,8 +10,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #30475e;
-    color: white;
+    background-color: #f0f1ee;
+    color:  rgb(64, 49, 94);;
     padding: 20px 30px;
 }
 
@@ -26,9 +26,27 @@ header nav {
 }
 
 header nav a {
-    color: white;
+    color: rgb(64,49,94);
     margin-right: 70px;
-    font-weight: 500;
+    font-weight: bold;
+    position: relative;
+    text-decoration: none;
+}
+
+header nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px; /* Adjust the distance of the line from the text */
+    width: 100%; /* Line spans the full width of the element */
+    height: 2px; /* Height of the line */
+    background-color: rgb(64, 49, 94); /* Color of the line */
+    transition: opacity 0.3s; /* Smooth transition for visibility */
+    opacity: 0; /* Initially hidden */
+}
+
+header nav a:hover::after {
+    opacity: 1; /* Show the line on hover */
 }
 
 header div.sign-in-up {
@@ -51,6 +69,7 @@ header div.sign-in-up button {
     border-radius: 5px;
     outline: none;
     margin-left: 170px;
+    cursor: pointer;
 }
 
 header div.sign-in-up button:last-child {

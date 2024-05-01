@@ -12,18 +12,77 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="resources/CSS/style.css">
+    <link rel="stylesheet" href="resources/CSS/index.css">
     <link rel="stylesheet" href="resources/CSS/forgotpass.css">
 </head>
 
 <body>
     <header>
-        <?php 
-            $path = ".";  
-            include("components/nav_header.php") ;
+        <?php
+        $path = ".";
+        include("components/nav_header.php");
         ?>
     </header>
 
+    <section class="main">
+        <section class="left">
+            <p class="title">Apti-Trainer</p>
+            <p class="msg">
+                "Apti Trainer" is a comprehensive online platform designed
+                to empower students in preparing for placement assessments.
+                With a focus on honing essential aptitude skills, our
+                platform offers a dynamic and interactive learning
+                experience.
+            </p>
+            <button class="cta">
+                Learn More...!
+            </button>
+        </section>
+        <section class="right">
+            <img src="resources/images/people.png" alt="Landing Image">
+        </section>
+    </section>
 
+    <section class="main">
+        <section class="left2">
+            <img src="resources/images/skills.png" alt="Landing Image">
+        </section>
+        <section class="right2">
+            <p class="title">Learn The Skills</p>
+            <p class="msg">
+                "Tailored specifically for students, our platform offers a diverse range of courses covering academic subjects, practical skills, and personal development
+            </p>
+        </section>
+    </section>
+
+    <section class="main">
+        <section class="left">
+            <p class="title">Pathway To Career</p>
+            <p class="msg">
+                This comprehensive program focuses on providing students
+                with the essential skills, insights, and resources
+                needed to kickstart their careers confidently.
+            </p>
+        </section>
+        <section class="right">
+            <img src="resources/images/career.png" alt="Landing Image" style="width: 85%; ">
+        </section>
+    </section>
+
+    <section class="main">
+        <section class="left2">
+            <img src="resources/images/boy.png" alt="Landing Image">
+        </section>
+        <section class="right2">
+            <p class="title">Test Yourself</p>
+            <p class="msg">
+                This project offers a diverse range of quizzes, practice
+                tests, and self-assessment tools tailored to help
+                students reinforce their understanding and improve
+                test-taking skills
+            </p>
+        </section>
+    </section>
 
     <div class="popup-container" id="login-popup">
         <div class="popup">
@@ -76,7 +135,8 @@ session_start();
 
     <?php
     if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
-        echo "<h1 style='text-align: center; margin-top: 200px;'> Welcome  To Apti-Trainer ! $_SESSION[username]</h1>";
+        echo "<script>window.location.href = 'Sections/Home/Home.php';</script>";
+        exit(); // Ensure that script execution stops after redirection
     }
 
 
@@ -87,15 +147,14 @@ session_start();
             get_popup = document.getElementById(popup_name);
             if (get_popup.style.display == "flex") {
                 get_popup.style.display = "none";
-            }
-            else {
+            } else {
                 get_popup.style.display = "flex";
             }
         }
 
-        function forgotPopup(){
-            document.getElementById('login-popup').style.display="none";
-            document.getElementById('forgot-popup').style.display="flex";
+        function forgotPopup() {
+            document.getElementById('login-popup').style.display = "none";
+            document.getElementById('forgot-popup').style.display = "flex";
 
         }
     </script>
