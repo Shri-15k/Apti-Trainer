@@ -17,14 +17,15 @@ session_start();
     <link rel="stylesheet" href="../../resources/CSS/comptags.css">
     <script src="../../resources/JS/Notes.js" defer></script>
 </head>
-
-<body>
-    <header>
+<header>
         <?php
         $path = '../..';
         include("$path/components/nav_header.php");
         ?>
     </header>
+
+<body style="background-color:#f0f1ee;">
+
     <main>
 
     <?php

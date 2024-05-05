@@ -12,15 +12,17 @@ session_start();
     <title>Topics Dashboard</title>
     <link rel="stylesheet" href="../../resources/CSS/stylecatdash.css">
     <link rel="stylesheet" href="../../resources/CSS/style.css">
-
 </head>
-<body>
-    <header>
+
+<header>
         <?php
         $path = "../..";
         include("../../components/nav_header.php");
         ?>
     </header>
+    
+<body style="background-color:#f0f1ee;">
+
     <?php
     if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
     ?>

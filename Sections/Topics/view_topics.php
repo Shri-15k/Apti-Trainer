@@ -16,10 +16,12 @@ session_start();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
-<body>
-    <header>
+<header>
         <?php $path = "../..";  include("../../components/nav_header.php") ;?>
     </header>
+
+<body style="background-color:#f0f1ee;">
+
 
     <?php
     if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
