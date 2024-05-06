@@ -31,8 +31,11 @@ session_start();
         if (isset($_GET['data'])) {
             $data = $_GET['data']; // Decode and parse the data
             
-                $sql = "SELECT cat_name FROM `category` WHERE cat_id = $data";
-                $result1 = mysqli_query($con, $sql);
+                $sql = "SELECT cat_name FROM `category` WHERE cat_id = ?";
+                $stmt = mysqli_prepare($con, $sql);
+                mysqli_stmt_bind_param($stmt, "s", $data);
+                mysqli_stmt_execute($stmt);
+                $result1 = mysqli_stmt_get_result($stmt);
                 $row1=mysqli_fetch_array($result1);
         ?>
 
@@ -43,11 +46,14 @@ session_start();
 
                     <h1><?php echo $row1['cat_name']?><span></span></h1>
 
-
                     <div>
                     <?php
-                    $sql = "SELECT * FROM topics WHERE cat_id=$data";
-                    $result = mysqli_query($con, $sql);
+                    $sql = "SELECT * FROM topics WHERE cat_id=?";
+                    $stmt = mysqli_prepare($con, $sql);
+                    mysqli_stmt_bind_param($stmt, "s", $data);
+                    mysqli_stmt_execute($stmt);
+                    $result = mysqli_stmt_get_result($stmt);
+                    $row=mysqli_fetch_array($result);
                     while ($row = mysqli_fetch_array($result)) {
                         ?>
 
