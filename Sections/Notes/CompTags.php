@@ -35,7 +35,7 @@ session_start();
       if (isset($_GET['data'])) {
         $data = $_GET['data']; // Decode and parse the data
 
-        if (!empty($data) && ctype_alnum($data)) {
+        if (!empty($data)) {
           $sql = "SELECT compony_tags FROM `notes` WHERE notes_name = ?";
           $stmt = mysqli_prepare($con, $sql);
           mysqli_stmt_bind_param($stmt, "s", $data);

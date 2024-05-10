@@ -38,7 +38,7 @@ session_start();
         //echo "Received data: $data <br>";
 
         // Ensure $data is not empty and contains only alphanumeric characters
-        if (!empty($data) && ctype_alnum($data)) {
+        if (!empty($data)) {
           $sql = "SELECT view_notes FROM `notes` WHERE notes_name = ?";
           $stmt = mysqli_prepare($con, $sql);
           mysqli_stmt_bind_param($stmt, "s", $data);
