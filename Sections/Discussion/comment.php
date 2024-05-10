@@ -6,7 +6,7 @@
   <button class="reply" onclick="reply(<?php echo $reply_id; ?>, '<?php echo $data['name']; ?>')">Reply</button>
   <?php
   unset($datas);
-  $datas = mysqli_query($conn, "SELECT * FROM tb_data WHERE reply_id = $reply_id");
+  $datas = mysqli_query($con, "SELECT * FROM discussion WHERE reply_id = $reply_id");
   if (mysqli_num_rows($datas) > 0) {
     foreach ($datas as $data) {
       require 'reply.php';
