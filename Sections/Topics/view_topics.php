@@ -37,6 +37,7 @@ session_start();
                 mysqli_stmt_execute($stmt);
                 $result1 = mysqli_stmt_get_result($stmt);
                 $row1=mysqli_fetch_array($result1);
+                $_SESSION['CatId'] = $data;
         ?>
 
         <div class="container">
@@ -65,8 +66,8 @@ session_start();
                                         <?php echo $row['topic_name'] ?>
                                     </h2>
                                     <div class="buttons">
-                                        <a href="practice_page.html" class="view-topics-button">Practice</a>
-                                        <a href="quiz_page.html" class="view-topics-button">Quiz</a>
+                                    <a href="practice-test.php?topic=<?php echo $row['topic_name'] ?>" class="view-topics-button">Practice</a>
+                                        <a href="quiz.php?topic=<?php echo $row['topic_name'] ?>" class="view-topics-button">Quiz</a>
                                     </div>
                                 </div>
 
