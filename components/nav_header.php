@@ -11,7 +11,7 @@
 
     <?php
     if (isset($path)){
-        $nav_elements = array("Home/Home", "Topics/categorydash_f", "Notes/Notes", "Discussion/Discussion", "MNC/MNC");
+        $nav_elements = array("Home/Home", "Topics/categorydash_f", "Notes/Notes", "Discussion/Discussion", "MNC/MNC","Admin/Admin");
         for ($x = 0; $x < count($nav_elements); $x++) {
     
                 $temp = explode('/', $nav_elements[$x]);
