@@ -15,10 +15,34 @@ session_start();
   <link rel="stylesheet" href="../../resources/CSS/admin.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-
-
-
 </head>
+
+<style>
+.manage-button-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px auto;
+  max-width: 800px;
+  padding: 10px;
+  border: 2px solid #000000; /* Green border */
+  border-radius: 10px; /* Rounded corners */
+  background-color: #e6ffff;
+}
+
+.manage_button {
+  display: inline-block;
+  padding: 10px 20px;
+  border: none;
+  background-color: #ffffb3;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+</style>
 
 <body style="background-color:#f0f1ee;">
   <header>
@@ -138,7 +162,7 @@ session_start();
     <h3 style="margin-top: 40px; margin-bottom: 0;">Compony List :</h3>
     <header class="d-flex justify-content-between my-4" style="margin-bottom: 0;">
         <div>
-            <a href="create.php" class="btn btn-primary">Add New Compony Details</a>
+            <a href="create_comp.php" class="btn btn-primary">Add New Compony Details</a>
         </div>
     </header>
 </div>
@@ -188,8 +212,17 @@ session_start();
             echo "No Componies found.";
           }
           ?>
-
 <!-- code to view listed componies ends here -->
+
+<!-- code to create buttons for managing questions -->
+<div class="manage-button-container">
+    <!--<a href="#" class="manage_button">Manage Questions Database</a>-->
+    <p style="font-size:large;"><b>Manage Database Questions :</b></p>
+    <a href="manage_practice.php" class="manage_button"><b>Practice</b></a>
+    <a href="manage_quiz.php" class="manage_button"><b>Quiz</b></a>
+    <a href="#" class="manage_button"><b>Mock Test</b></a>
+</div>
+<!--code to create buttons for managing questions end here -->
       <?php
       } else {
         echo "
