@@ -89,6 +89,8 @@ session_start();
                 ?>
               </tbody>
             </table>
+
+            <?php echo "$counter" ?>
           <?php
           } else {
             echo "No Questions Found In The Database";
