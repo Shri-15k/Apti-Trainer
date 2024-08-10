@@ -9,6 +9,7 @@ Traditional methods of aptitude training, such as classroom coaching and study m
 To address these challenges, the Apti-Trainer web portal was developed as a comprehensive solution for students preparing for placement exams. By leveraging modern web technologies, Apti-Trainer aims to equip students with the necessary skills to excel in aptitude tests and enhance their employability.
 
 **Features**
+
 The Apti-Trainer web portal offers the following key features:
 
 **Topics:** Provides topic-wise question sets that can be solved in quiz and practice modes.
@@ -18,6 +19,7 @@ Mock Tests: Offers mock tests covering multiple topics to simulate real aptitude
 **Discussion:** Enables users to discuss doubts, seek clarifications, and engage with experts.
 
 **Technologies Used**
+
 Frontend: HTML, CSS, JavaScript
 Backend: PHP
 Database: MySQL
@@ -25,12 +27,13 @@ Version Control: GitLens
 Security: Synk
 
 ## Contributors
-- **[Mihir Patki](https://github.com/Mihir-Patki)** -
-- **[Shriraj Khochage](https://github.com/Shri-15k)** -
-- **[Arya Teli](https://github.com/aaryat)** -
-- **[Sakshi Maskar](https://github.com/SakshiMaskar)** -
+- **[Mihir Patki](https://github.com/Mihir-Patki)** 
+- **[Shriraj Khochage](https://github.com/Shri-15k)** 
+- **[Arya Teli](https://github.com/aaryat)** 
+- **[Sakshi Maskar](https://github.com/SakshiMaskar)** 
 
 **Future Enhancements**
+
 We plan to continually improve the Apti-Trainer portal by adding new features and content, including:
 
 More question sets with varying difficulty levels.
