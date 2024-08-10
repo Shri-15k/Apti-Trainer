@@ -13,18 +13,26 @@ To address these challenges, the Apti-Trainer web portal was developed as a comp
 The Apti-Trainer web portal offers the following key features:
 
 **Topics:** Provides topic-wise question sets that can be solved in quiz and practice modes.
+
 **Notes:** Allows users to view and download topic-wise study materials.
 Mock Tests: Offers mock tests covering multiple topics to simulate real aptitude tests.
+
 **MNCs (Multinational Corporations):** Provides detailed information about major companies, their recruitment processes, and job requirements.
+
 **Discussion:** Enables users to discuss doubts, seek clarifications, and engage with experts.
 
 **Technologies Used**
 
 Frontend: HTML, CSS, JavaScript
+
 Backend: PHP
+
 Database: MySQL
+
 Version Control: GitLens
+
 Security: Synk
+
 
 ## Contributors
 - **[Mihir Patki](https://github.com/Mihir-Patki)** 
