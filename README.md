@@ -38,7 +38,8 @@ Security: Synk
 - **[Mihir Patki](https://github.com/Mihir-Patki)** 
 - **[Shriraj Khochage](https://github.com/Shri-15k)** 
 - **[Arya Teli](https://github.com/aaryat)** 
-- **[Sakshi Maskar](https://github.com/SakshiMaskar)** 
+- **[Sakshi Maskar](https://github.com/SakshiMaskar)**
+- **[Tanay Chougule](https://github.com/TanayChougule)** 
 
 **Future Enhancements**
 
